@@ -13,10 +13,10 @@ server.connection({
         // cors: {
         //     origin: ['http://localhost:1234', 'http://localhost:8000']
         // }
-        // cors: {
-        //     headers: ['X-Session-ID', 'Accept', 'Authorization', 'Content-Type', 'If-None-Match']
-        // }
-        cors: true
+        cors: {
+            headers: ['X-Session-ID', 'x-session-id', 'Accept', 'Authorization', 'Content-Type', 'If-None-Match']
+        }
+        // cors: true
     }
 });
 
