@@ -14,7 +14,7 @@ server.connection({
         //     origin: ['http://localhost:1234', 'http://localhost:8000']
         // }
         cors: {
-            headers: ['X-Session-ID', 'x-session-id', 'Accept', 'Authorization', 'Content-Type', 'If-None-Match']
+            additionalHeaders: ['X-Session-ID', 'x-session-id']
         }
         // cors: true
     }
