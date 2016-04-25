@@ -29,6 +29,8 @@ server.ext({
         const req = request.raw.req;
         const headers = req.headers;
         console.log('<--- -- req.headers', headers);
+        console.log('<--- -- req.headers', headers['x-session-id']);
+
         console.log('<--- -- req.headers', typeof (headers));
         
 
