@@ -1,0 +1,20 @@
+{
+  "name": "baas-service",
+  "version": "1.0.0",
+  "description": "yunzix baas-server api",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "huayun321@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "boom": "^3.1.2",
+    "good": "^6.6.0",
+    "good-console": "^5.3.1",
+    "hapi": "^13.3.0",
+    "joi": "^8.0.5",
+    "mongojs": "^2.3.0",
+    "node-uuid": "^1.4.7"
+  }
+}
