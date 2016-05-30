@@ -4,13 +4,15 @@
   "description": "yunzix baas-server api",
   "main": "server.js",
   "scripts": {
-    "test": "npm test"
+    "start": "node app.js",
+    "test": "NODE_ENV=test node node_modules/lab/bin/lab -v -L -C -D -c -t 85"
   },
   "author": "huayun321@gmail.com",
   "license": "ISC",
   "dependencies": {
     "@sensoro/base-tool": "^1.0.4",
     "boom": "^3.1.2",
+    "configue": "^0.10.0",
     "good": "^6.6.0",
     "good-console": "^5.3.1",
     "hapi": "^13.3.0",

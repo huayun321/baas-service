@@ -3,6 +3,8 @@
 const Hapi = require('hapi');
 const good = require('good'); // <--- log
 const mongojs = require('mongojs');  // <--- mongojs
+const Boom = require('boom');
+
 
 
 //create a server with an host and port
@@ -62,7 +64,7 @@ server.ext({
                 }
             });
         } else {
-            return reply({err:'跨域错误，请查看HTTP.HEADERS'});
+            return reply(Boom.unauthorized('unauthorized'));
         }
     }
 });
@@ -155,6 +157,9 @@ server.register([
 //         console.log('Server running at: ', server.info.uri);
 //     });
 // });
+
+module.exports = server;
+
 
 
 
