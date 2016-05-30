@@ -9,6 +9,7 @@
   "author": "huayun321@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "@sensoro/base-tool": "^1.0.4",
     "boom": "^3.1.2",
     "good": "^6.6.0",
     "good-console": "^5.3.1",
@@ -16,5 +17,9 @@
     "joi": "^8.0.5",
     "mongojs": "^2.3.0",
     "node-uuid": "^1.4.7"
+  },
+  "devDependencies": {
+    "code": "^3.0.0",
+    "lab": "^10.7.1"
   }
 }
