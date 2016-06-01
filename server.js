@@ -14,7 +14,7 @@ server.connection({
     routes: {
         cors: {
             origin: ['http://localhost:8002', 'http://localhost:8000', 'http://localhost:1234'],
-            additionalHeaders: ['X-Session-ID', 'x-session-id'],
+            additionalHeaders: ['x-session-id'],
             credentials:true
         },
         // cors: true
@@ -52,11 +52,13 @@ server.ext({
 
 
         if (headers['x-session-id']) {
-            Base.authentication(headers['x-session-id'], 'baas', 'apps', function(err, result){
+            Base.authentication(headers['x-session-id'], 'nine', 'apps', function(err, result){
                 if(err) {
                     return reply({err:err});
                 }
                 if(result && result.can) {
+                    console.log('<--- -- result.uid', result.uid);
+
                     request.uid = result.uid;
                     return reply.continue();
                 } else {

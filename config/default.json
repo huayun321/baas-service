@@ -1,0 +1,5 @@
+{
+  //for test
+  "base_url"    : "http://qing.mocha.server.sensoro.com/base",
+  "mongo_db"   : "hapi-rest-mongo"
+}

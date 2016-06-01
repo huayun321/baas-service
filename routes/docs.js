@@ -15,7 +15,9 @@ exports.register = function (server, options, next) {
     const check_app_key = function (request, reply) {
         apps.findOne({
             _id: request.query.app_id,
-            app_key: request.query.app_key
+            app_key: request.query.app_key,
+            is_delete: false,
+            is_stop: false
         }, (err, doc) => {
 
             if (err) {
@@ -85,7 +87,7 @@ exports.register = function (server, options, next) {
                 return reply(Boom.badData('Internal MongoDB error', err));
             }
             if(request.pre.check_id_result.err_not_found) {
-                console.log('404');
+                console.log('404 app_id app_key not valid');
 
                 return reply(Boom.notFound('app_id app_key not valid'));
             }
@@ -116,9 +118,12 @@ exports.register = function (server, options, next) {
     //---------------------
     const check_id_key = function (request, reply) {
         const app = request.payload;
+        console.log('<-- --check_id_key payload', app);
         apps.findOne({
             _id: app.app_id,
-            app_key: app.app_key
+            app_key: app.app_key,
+            is_stop: false,
+            is_delete: false
         }, (err, doc) => {
 
             if (err) {
@@ -158,7 +163,7 @@ exports.register = function (server, options, next) {
             if(request.pre.check_result.err_not_found) {
                 console.log('404');
 
-                return reply(Boom.notFound('app_id app_key not valid'));
+                return reply(Boom.badData('your data is bad and you should feel bad'));
             }
 
             console.log('<---- --- /create');

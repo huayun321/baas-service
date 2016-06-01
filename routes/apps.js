@@ -7,6 +7,7 @@ const Base = require('@sensoro/base-tool');
 Base.setBaseUrl('http://qing.mocha.server.sensoro.com/base');
 
 exports.register = function (server, options, next) {
+
     var v1_prefix = '/v1/apps/';
 
     console.log('<--- ---- hello ?');
@@ -15,11 +16,18 @@ exports.register = function (server, options, next) {
 
     server.route({
         method: 'GET',
-        path: v1_prefix + 'get-by-id/{id}',
+        path: v1_prefix + 'get-by-id',
+        config: {
+            validate: {
+                query: {
+                    app_id: Joi.string().regex(/^[a-zA-Z0-9-]{36}$/).required()
+                }
+            }
+        },
         handler: function (request, reply) {
 
             apps.findOne({
-                _id: request.params.id
+                _id: request.query.app_id
             }, (err, doc) => {
 
                 if (err) {
@@ -33,13 +41,6 @@ exports.register = function (server, options, next) {
                 reply(doc);
             })
 
-        },
-        config: {
-            validate: {
-                params: {
-                    id: Joi.string().regex(/^[a-zA-Z0-9-]{36}$/)
-                }
-            }
         }
     });
 
