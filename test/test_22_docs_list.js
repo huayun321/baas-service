@@ -44,8 +44,8 @@ describe('test list doc ', () => {
             method: 'GET',
             url: '/v1/docs/list?app_id=39ea0ea7-f0ec-49af-a1b2-82c7f3cf538a&app_key=93ce81fe-2604-4c5b-b861-1fb53ce5fb0f'
         }, (response) => {
-            expect(response.statusCode).to.equal(404);
-            expect(response.result.error).to.equal('Not Found');
+            expect(response.statusCode).to.equal(422);
+            expect(response.result.message).to.equal('your data is bad and you should feel bad');
 
             done();
         });
