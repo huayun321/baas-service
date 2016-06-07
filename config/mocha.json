@@ -1,5 +1,11 @@
 {
   //for test
   "base_url"    : "http://qing.mocha.server.sensoro.com/base",
-  "mongo_db"   : "mocha-baas"
+  "mongo_db"    : "mocha-baas",
+
+  //for cors
+  "origin"      : ["http://x.mocha.server.sensoro.com"],
+
+  //for server
+  "server_port" : 3022
 }

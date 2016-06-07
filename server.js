@@ -11,10 +11,10 @@ const Config = require('config');
 //create a server with an host and port
 const server = new Hapi.Server();
 server.connection({
-    port: 28001,
+    port: Config.get('server_port'),
     routes: {
         cors: {
-            origin: ['http://localhost:8002', 'http://localhost:8000', 'http://localhost:1234'],
+            origin: Config.get('origin'),
             additionalHeaders: ['x-session-id'],
             credentials:true
         },
