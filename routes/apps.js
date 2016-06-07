@@ -74,6 +74,11 @@ exports.register = function (server, options, next) {
                     page_size: [Joi.number().positive()],
                     current_page: [Joi.number().positive()]
                 }
+            },
+            //do not parese cookie
+            state: {
+                parse: false, // parse and store in request.state
+                failAction: 'ignore' // may also be 'ignore' or 'log'
             }
         },
         method: 'GET',

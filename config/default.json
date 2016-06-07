@@ -4,8 +4,8 @@
   "mongo_db"    : "hapi-rest-mongo",
 
   //for cors
-  "origin"      : ["http://localhost:8002", "http://localhost:8000", "http://localhost:1234"],
+  "origin"      : ["http://localhost:8002", "http://localhost:8000", "http://localhost:1234", "http://x.sensoro.com"],
 
   //for server
-  "server_port" : 2081
+  "server_port" : 28001
 }

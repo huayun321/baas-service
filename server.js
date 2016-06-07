@@ -22,6 +22,11 @@ server.connection({
     }
 });
 
+server.state('session', {
+    parse: false,
+    failAction: 'ignore'
+});
+
 
 const Base = require('@sensoro/base-tool');
 Base.setBaseUrl(Config.get('base_url'));
