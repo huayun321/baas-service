@@ -20,6 +20,10 @@ exports.register = function (server, options, next) {
                 query: {
                     app_id: Joi.string().regex(/^[a-zA-Z0-9-]{36}$/).required()
                 }
+            },
+            state: {
+                parse: false, // parse and store in request.state
+                failAction: 'ignore' // may also be 'ignore' or 'log'
             }
         },
         handler: function (request, reply) {
@@ -116,6 +120,10 @@ exports.register = function (server, options, next) {
                 query: {
                     app_id: Joi.string().regex(/^[a-zA-Z0-9-]{36}$/)
                 }
+            },
+            state: {
+                parse: false, // parse and store in request.state
+                failAction: 'ignore' // may also be 'ignore' or 'log'
             }
         },
         handler: function(request, reply) {
@@ -143,6 +151,10 @@ exports.register = function (server, options, next) {
                 query: {
                     app_id: Joi.string().regex(/^[a-zA-Z0-9-]{36}$/)
                 }
+            },
+            state: {
+                parse: false, // parse and store in request.state
+                failAction: 'ignore' // may also be 'ignore' or 'log'
             }
         },
         handler: function(request, reply) {
@@ -170,6 +182,10 @@ exports.register = function (server, options, next) {
                 query: {
                     app_id: Joi.string().regex(/^[a-zA-Z0-9-]{36}$/)
                 }
+            },
+            state: {
+                parse: false, // parse and store in request.state
+                failAction: 'ignore' // may also be 'ignore' or 'log'
             }
         },
         handler: function(request, reply) {
@@ -204,6 +220,10 @@ exports.register = function (server, options, next) {
                 payload: {
                     name: Joi.string().min(1, 'utf8').max(20, 'utf8').required()
                 }
+            },
+            state: {
+                parse: false, // parse and store in request.state
+                failAction: 'ignore' // may also be 'ignore' or 'log'
             }
         },
         handler: function(request, reply) {
@@ -249,6 +269,10 @@ exports.register = function (server, options, next) {
                 payload: {
                     app_id: Joi.string().regex(/^[a-zA-Z0-9-]{36}$/)
                 }
+            },
+            state: {
+                parse: false, // parse and store in request.state
+                failAction: 'ignore' // may also be 'ignore' or 'log'
             }
         },
         handler: function(request, reply) {
@@ -317,6 +341,10 @@ exports.register = function (server, options, next) {
                     query_key: [Joi.string().regex(/^(obj\.)[a-zA-Z0-9-_$\.]{1,50}$/)],
                     query_value: [Joi.string().min(1).max(999)],
                 }
+            },
+            state: {
+                parse: false, // parse and store in request.state
+                failAction: 'ignore' // may also be 'ignore' or 'log'
             }
         },
         method: 'GET',
@@ -357,6 +385,10 @@ exports.register = function (server, options, next) {
                 query: {
                     doc_id: Joi.string().regex(/^[a-zA-Z0-9-]{36}$/),
                 }
+            },
+            state: {
+                parse: false, // parse and store in request.state
+                failAction: 'ignore' // may also be 'ignore' or 'log'
             }
         },
         handler: function(request, reply) {
