@@ -4,6 +4,7 @@ const Hapi = require('hapi');
 const good = require('good'); // <--- log
 const mongojs = require('mongojs');  // <--- mongojs
 const Boom = require('boom');
+const Config = require('config');
 
 
 
@@ -21,16 +22,9 @@ server.connection({
     }
 });
 
-// const handler = function (request, reply) {
-//
-//     return reply({ status: 'ok' });
-// };
-//
-// server.route({ method: 'GET', path: '/test', handler: handler });
-//
-//
+
 const Base = require('@sensoro/base-tool');
-Base.setBaseUrl('http://qing.mocha.server.sensoro.com/base');
+Base.setBaseUrl(Config.get('base_url'));
 server.ext({
     type: 'onRequest',
     method: function (request, reply) {
@@ -76,14 +70,7 @@ server.ext({
 
 
 //connect to db
-server.app.db = mongojs('hapi-rest-mongo');
-
-
-//test injection
-// server.inject('/', (res) => {
-//
-//     console.log('this is the inject');
-// });
+server.app.db = mongojs(Config.get('mongo_db'));
 
 //Load plugins and start server
 server.register([
@@ -116,49 +103,6 @@ server.register([
 
 });
 
-// server.route({
-//     method : 'GET',
-//     path   : '/',
-//     handler: function(request, reply) {
-//         reply('Hello, world!');
-//     }
-// });
-//
-// server.route({
-//     method : 'GET',
-//     path   : '/{name}',
-//     handler: function(request, reply) {
-//         // reply('Hello,' + request.params.name + '!');  //not safe
-//         reply('Hello,' + encodeURIComponent(request.params.name) + '!');
-//     }
-// });
-//
-// server.register({
-//     register: good,
-//     options : {
-//         reporters: [{
-//             reporter: require('good-console'),
-//             events  : {
-//                 response: '*',
-//                 log     : '*'
-//             }
-//         }]
-//     }
-// }, (err) => {
-
-//     if (err) {
-//        throw err;
-//     }
-//
-//     server.start((err) => {
-//
-//         if (err) {
-//             throw err;
-//         }
-//
-//         console.log('Server running at: ', server.info.uri);
-//     });
-// });
 
 module.exports = server;
 

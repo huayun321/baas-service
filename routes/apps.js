@@ -3,8 +3,6 @@
 const Boom = require('boom');
 const uuid = require('node-uuid');
 const Joi = require('joi');
-const Base = require('@sensoro/base-tool');
-Base.setBaseUrl('http://qing.mocha.server.sensoro.com/base');
 
 exports.register = function (server, options, next) {
 
